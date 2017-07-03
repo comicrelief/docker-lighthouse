@@ -16,9 +16,7 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends \
   && npm --global install yarn \
   && apt-get purge --auto-remove -y curl gnupg \
-  && rm -rf /var/lib/apt/lists/* \
-  && curl -O https://bootstrap.pypa.io/get-pip.py | python \
-  && pip install awscli
+  && rm -rf /var/lib/apt/lists/*
 
 ARG CACHEBUST=1
 RUN yarn global add lighthouse
