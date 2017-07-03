@@ -13,7 +13,11 @@ RUN apt-get update && apt-get install -y \
   && apt-get update && apt-get install -y \
     google-chrome-stable \
     nodejs \
+    curl \
+    python \
     --no-install-recommends \
+  && curl --silent --show-error --retry 5 "https://bootstrap.pypa.io/get-pip.py" | python \
+  && pip install awscli \
   && npm --global install yarn \
   && apt-get purge --auto-remove -y curl gnupg \
   && rm -rf /var/lib/apt/lists/*
