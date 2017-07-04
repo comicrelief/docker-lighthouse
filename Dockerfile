@@ -1,6 +1,6 @@
 FROM debian:sid
 
-# Install deps + add Chrome Stable + purge all the things
+# Install necessary dependencies to get lighthouse working.
 RUN apt-get update && apt-get install -y \
     apt-transport-https \
     ca-certificates \
