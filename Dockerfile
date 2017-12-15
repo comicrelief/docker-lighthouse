@@ -4,6 +4,7 @@ FROM debian:sid
 RUN apt-get update && apt-get install -y \
     apt-transport-https \
     ca-certificates \
+    build-essential \
     curl \
     gnupg \
     --no-install-recommends \
