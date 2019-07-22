@@ -7,15 +7,13 @@ RUN apt-get update && apt-get install -y --force-yes \
     build-essential \
     curl \
     gnupg \
+    awscli \
     --no-install-recommends \
   && curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
   && echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list \
   && apt-get update && apt-get install -y --force-yes \
     google-chrome-stable \
-    python \
     --no-install-recommends \
-  && curl --silent --show-error --retry 5 "https://bootstrap.pypa.io/get-pip.py" | python \
-  && pip install awscli
 
 ARG CACHEBUST=1
 RUN yarn global add lighthouse
