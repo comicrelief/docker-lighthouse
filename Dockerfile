@@ -1,4 +1,4 @@
-FROM debian:sid
+FROM node:10.16.0-jessie
 
 # Install necessary dependencies to get lighthouse working.
 RUN apt-get update && apt-get install -y \
@@ -8,7 +8,6 @@ RUN apt-get update && apt-get install -y \
     curl \
     gnupg \
     --no-install-recommends \
-  && curl -sSL https://deb.nodesource.com/setup_8.x | bash - \
   && curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
   && echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list \
   && apt-get update && apt-get install -y \
@@ -19,7 +18,6 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends \
   && curl --silent --show-error --retry 5 "https://bootstrap.pypa.io/get-pip.py" | python \
   && pip install awscli \
-  && npm --global install yarn \
   && apt-get purge --auto-remove -y curl gnupg \
   && rm -rf /var/lib/apt/lists/*
 
