@@ -14,6 +14,4 @@ RUN apt-get update && apt-get install -y --force-yes \
   && apt-get update && apt-get install -y --force-yes \
     google-chrome-stable \
     --no-install-recommends \
-
-ARG CACHEBUST=1
 RUN yarn global add lighthouse
