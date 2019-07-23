@@ -13,5 +13,5 @@ RUN apt-get update && apt-get install -y --force-yes \
   && echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list \
   && apt-get update && apt-get install -y --force-yes \
     google-chrome-stable \
-    --no-install-recommends \
+    --no-install-recommends
 RUN yarn global add lighthouse
